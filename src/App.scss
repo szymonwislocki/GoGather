@@ -1,0 +1,47 @@
+$primary: #232c34;
+$input-background: #303c46;
+$button-over: #5ca85c;
+$button-dead: #495a68;
+
+%basic-container-styles {
+  background-color: $primary;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 12px;
+}
+
+%center-childs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%hidden-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+  }
+}
+
+@keyframes appear-delayed {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

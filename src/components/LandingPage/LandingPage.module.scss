@@ -1,0 +1,167 @@
+@use "../HomePage/Home.module.scss";
+@use "../../App.scss";
+
+$button: #566294;
+
+%button-behav {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin basic-input-styles($col, $bgcol) {
+  border-radius: 15px;
+  color: $col;
+  background: $bgcol;
+  border: none;
+  padding: 6px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.landingpage {
+  height: calc(100vh - Home.$footer-height);
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  background-image: url("../../images/gdansk-7505686.png");
+  background-size: cover;
+  overflow: scroll;
+  @extend %hidden-scrollbar;
+
+  .infos {
+    @extend %center-childs;
+    width: 60%;
+    padding-top: 5px;
+    box-sizing: border-box;
+    flex-direction: column;
+    &__logo {
+      font-weight: 500;
+      letter-spacing: 4px;
+      font-size: 35px;
+    }
+    &__header {
+      margin-top: 30px;
+      font-size: 45px;
+      text-align: center;
+    }
+    &__about {
+      position: relative;
+      padding: 40px;
+    }
+  }
+  &__account {
+    min-width: 40%;
+    box-sizing: border-box;
+    @extend %center-childs;
+    flex-direction: column;
+  }
+}
+
+.formsection {
+  @extend %center-childs;
+  flex-direction: column;
+  width: 50%;
+  &__header {
+    text-align: center;
+  }
+  &__form {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__input {
+    width: 30vw;
+    @include basic-input-styles(black, rgb(249, 249, 255));
+    &--textarea {
+      @include basic-input-styles(black, rgb(249, 249, 255));
+      width: 30vw;
+      resize: none;
+      font-size: 12px;
+    }
+  }
+  &__button {
+    @include basic-input-styles(white, $button);
+    width: 30vw;
+    margin-top: 25px;
+    &--avatar {
+      @include basic-input-styles(white, $button);
+      width: 50%;
+      font-size: 13px;
+      border: none;
+      text-align: center;
+      @extend %button-behav;
+    }
+    @extend %button-behav;
+  }
+  &__errormessage {
+    background: tomato;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 8px;
+  }
+  &__toggleButton {
+    margin-top: 16px;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    @extend %button-behav;
+  }
+  &__registerfields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__addimagesection {
+    display: flex;
+    width: 30vw;
+  }
+  &__filepicker {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  &__avatar {
+    margin-top: 5px;
+    width: 35px;
+    height: 35px;
+    border: 2px solid #394653;
+    border-radius: 50%;
+    padding: 1.5px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .landingpage {
+    flex-wrap: wrap;
+    .infos {
+      width: 100%;
+      height: 50%;
+      &__about {
+        display: none;
+      }
+      &__header {
+        font-size: max(5vh, 25px);
+      }
+    }
+    .formsection {
+      height: 50%;
+      width: 100%;
+
+      &__form {
+        width: 90%;
+      }
+      &__addimagesection {
+        display: flex;
+        width: 70%;
+      }
+      &__input {
+        width: 300px;
+        font-size: 3vw;
+        &--textarea {
+          width: 300px;
+        }
+      }
+    }
+  }
+}

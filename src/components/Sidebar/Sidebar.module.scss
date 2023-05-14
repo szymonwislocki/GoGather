@@ -1,0 +1,70 @@
+@use "../../App.scss";
+@use "../HomePage/Home.module.scss";
+
+%sidebar-elements-styles {
+  border-radius: 10px;
+  padding: 5px;
+  border: 0.5px solid white;
+  background: App.$primary;
+  margin: 2px 0;
+  text-align: center;
+  text-decoration: none;
+}
+
+.sidebar {
+  position: absolute;
+  margin-left: 5px;
+  width: 365px;
+  background-color: transparent;
+  margin-top: Home.$navbar-height;
+  max-height: calc(100vh - Home.$navbar-height - 20px);
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  animation: appear 0.3s;
+  @extend %hidden-scrollbar;
+  .options {
+    @extend %sidebar-elements-styles;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    animation: appear 0.4s;
+    &__button {
+      @extend %sidebar-elements-styles;
+      background: App.$input-background;
+      &:hover {
+        background: App.$primary;
+      }
+      &--add {
+        @extend %sidebar-elements-styles;
+        font-weight: 800;
+        background-color: #1f6d2d;
+      }
+      &--active {
+        @extend %sidebar-elements-styles;
+        background: App.$button-over;
+      }
+    }
+  }
+  .events {
+    animation: appear 0.4s;
+    &__view {
+      @extend %sidebar-elements-styles;
+      display: flex;
+      flex-direction: column;
+      background-color: App.$primary;
+      text-align: center;
+    }
+    &__selectlabel {
+      padding-top: 5px;
+    }
+    &__select {
+      @extend %sidebar-elements-styles;
+      outline: none;
+      font-size: 14px;
+      background-color: transparent;
+      border: none;
+      margin-left: 5px;
+    }
+  }
+}
